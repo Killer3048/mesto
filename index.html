@@ -20,26 +20,14 @@
     </header>
 
     <main>
-        <div class="popup">
-            <div class="popup__container">
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <button class="popup__btn-close"></button>
-                <form class="popup__form" name="formProfile">
-                    <input class="popup__form-input popup__form-input_type_name" type="text" name="name" value="" placeholder="Имя" required>
-                    <input class="popup__form-input popup__form-input_type_job" type="text" name="job" value="" placeholder="Профессия" required>
-                    <button type="submit" class="popup__form-btn">Сохранить</button>
-                </form>
-            </div>
-        </div>
-
     <section class="profile">
         <img src="./images/ava.png" alt="Ава" class="profile__ava">
         <div class="profile__info">
             <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-            <button class="profile__info-edit"></button>
+            <button class="profile__info-edit"  aria-label="что-то" type="button"></button>
             <p class="profile__info-job">Исследователь океана</p>
         </div>
-        <button class="profile__button-add"></button>
+        <button class="profile__button-add"  aria-label="что-то" type="button"></button>
     </section>
 
     <section class="elements">
@@ -47,7 +35,7 @@
         <img class="card__image" src="./images/image-card-1.png" alt="Карачаевск">
         <div class="card__container">
         <h3 class="card__title">Карачаевск Карачаевск</h3>
-        <button class="card__like"></button>
+        <button class="card__like"  aria-label="что-то" type="button"></button>
         </div>
     </div>
 
@@ -55,7 +43,7 @@
         <img class="card__image" src="./images/konoha.jpg" alt="Коноха">
         <div class="card__container">
             <h3 class="card__title">Коноха (деревня, скрытая в листве)</h3>
-            <button class="card__like"></button>
+            <button class="card__like"  aria-label="что-то" type="button"></button>
         </div>
     </div>
 
@@ -63,7 +51,7 @@
         <img class="card__image" src="./images/kreml.jpg" alt="Кремль">
         <div class="card__container">
             <h3 class="card__title">Москва (Кремль)</h3>
-            <button class="card__like"></button>
+            <button class="card__like"  aria-label="что-то" type="button"></button>
         </div>
     </div>
 
@@ -71,7 +59,7 @@
         <img class="card__image" src="./images/pskov.jpeg" alt="Псковская область">
         <div class="card__container">
             <h3 class="card__title">Псковская область</h3>
-            <button class="card__like"></button>
+            <button class="card__like"  aria-label="что-то" type="button"></button>
         </div>
     </div>
 
@@ -79,7 +67,7 @@
         <img class="card__image" src="./images/izhevsk.jpg" alt="Ижевск">
         <div class="card__container">
             <h3 class="card__title">Ижевск</h3>
-            <button class="card__like"></button>
+            <button class="card__like"  aria-label="что-то" type="button"></button>
         </div>
     </div>
     
@@ -87,7 +75,7 @@
         <img class="card__image" src="./images/ioshkar-ola.jpg" alt="Йошкар-Ола">
         <div class="card__container">
             <h3 class="card__title">Йошкар-Ола</h3>
-            <button class="card__like"></button>
+            <button class="card__like"  aria-label="что-то" type="button"></button>
         </div>
     </div>
     </section>
@@ -96,6 +84,17 @@
     <footer class="footer">
       <p class="footer__info">© 2022 Mesto Russia</p>
     </footer>
+    <div class="popup">
+        <div class="popup__container">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <button class="popup__btn-close" aria-label="что-то" type="button"></button>
+            <form class="popup__form" name="formProfile">
+                <input class="popup__form-input popup__form-input_type_name" type="text" name="name" value="" placeholder="Имя" required>
+                <input class="popup__form-input popup__form-input_type_job" type="text" name="job" value="" placeholder="Профессия" required>
+                <button type="submit" class="popup__form-btn">Сохранить</button>
+            </form>
+        </div>
+    </div>
   <script src="./scripts/index.js"></script>
   </body>
 </html>

@@ -6,4 +6,6 @@
   align-items: center;
   margin: auto;
   box-sizing: border-box;
+  padding-top: 26px;
+  padding-bottom: 26px;
 }
