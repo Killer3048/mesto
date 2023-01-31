@@ -8,7 +8,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    line-height: 22px;
+    line-height: 21.78px;
     text-align: center;
     padding: 14px 0;
     cursor: pointer;
@@ -18,4 +18,12 @@
 
 .popup__form-btn:hover {
     opacity: 0.8;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1279px) {
+    .popup__form-btn {
+        font-size: 14px;
+        line-height: 16.94px;
+        letter-spacing: 0em;
+    }
 }
