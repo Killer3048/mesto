@@ -1,60 +1,17 @@
-const popup = document.querySelector(".popup");
-const form = document.querySelector(".popup__form");
-const closeButton = document.querySelector(".popup__btn-close");
-const editButton = document.querySelector(".profile__info-edit");
-const nameInput = document.querySelector(".popup__form-input_type_name");
-const jobInput = document.querySelector(".popup__form-input_type_job");
-const name = document.querySelector(".profile__info-name");
-const job = document.querySelector(".profile__info-job");
+const openPopup = item => {
+    item.classList.add("popup_is-opened");
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
+};
 
-const popupMesto = document.querySelector('.popup_type_mesto')
-const openMestoPopup = document.querySelector('.profile__button-add')
-const closeMestoPopup = popupMesto.querySelector('.popup__btn-close')
-const nameImageInput = popupMesto.querySelector('input[name="imageName"]')
-const linkImageInput = popupMesto.querySelector('input[name="imageSrc"]')
-const formElementMesto = popupMesto.querySelector('.popup__form')
-
-const popupImage = document.querySelector('.popup_type_image')
-const closePopupImage = popupImage.querySelector('.popup__btn-close')
-
-const cardTemplate = document.querySelector('.template-card').content.querySelector('.card')
-const cardElements = document.querySelector('.elements')
-const initialCards = [{
-        name: "Ижевск",
-        link: "https://i.ibb.co/3zkc9pd/izhevsk.jpg",
-    },
-    {
-        name: "Йошкар-Ола",
-        link: "https://i.ibb.co/HPZW3ZD/ioshkar-ola.jpg",
-    },
-    {
-        name: "Кремль",
-        link: "https://i.ibb.co/wK2VG3g/kreml.jpg",
-    },
-    {
-        name: "Коноха",
-        link: "https://i.ibb.co/hMHggKQ/konoha.jpg",
-    },
-    {
-        name: "Москва",
-        link: "https://i.ibb.co/jVRWB7g/moscow.jpg",
-    },
-    {
-        name: "Псков",
-        link: "https://i.ibb.co/885pFdS/pskov.jpg",
-    },
-];
-
-const openAndClosePopup = item => {
-    item.classList.toggle("popup_is-opened");
-    nameInput.value = name.textContent;
-    jobInput.value = job.textContent;
+const closePopup = item => {
+    item.classList.remove("popup_is-opened");
 };
 
 const editProfile = event => {
     event.preventDefault();
-    name.textContent = nameInput.value;
-    job.textContent = jobInput.value;
+    profileName.textContent = nameInput.value;
+    profileJob.textContent = jobInput.value;
     popup.classList.remove("popup_is-opened");
 };
 
@@ -87,8 +44,8 @@ formElementMesto.addEventListener('submit', event => {
 });
 
 form.addEventListener("submit", editProfile);
-editButton.addEventListener("click", () => openAndClosePopup(popup));
-closeButton.addEventListener("click", () => openAndClosePopup(popup));
-openMestoPopup.addEventListener("click", () => openAndClosePopup(popupMesto));
-closeMestoPopup.addEventListener("click", () => openAndClosePopup(popupMesto));
-closePopupImage.addEventListener("click", () => openAndClosePopup(popupImage));
+editButton.addEventListener("click", () => openPopup(popup));
+closeButton.addEventListener("click", () => closePopup(popup));
+openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
+closeMestoPopup.addEventListener("click", () => closePopup(popupMesto));
+closePopupImage.addEventListener("click", () => closePopup(popupImage));
