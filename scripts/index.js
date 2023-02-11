@@ -10,17 +10,6 @@ const openPopup = (item) => {
     item.classList.remove("popup_is-opened");
   };
   
-  const closePopupClickAround = (event) => {
-    const target = event.target;
-    const popups = document.querySelectorAll(".popup");
-    popups.forEach((popup) => {
-      const insidePopup = popup.contains(target);
-      if (insidePopup) {
-        closePopup(popup);
-      }
-    });
-  };
-  
   const editProfile = (event) => {
     event.preventDefault();
     profileName.textContent = nameInput.value;
@@ -76,5 +65,3 @@ const openPopup = (item) => {
   openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
   closeMestoPopup.addEventListener("click", () => closePopup(popupMesto));
   closePopupImage.addEventListener("click", () => closePopup(popupImage));
-  document.addEventListener("click", closePopupClickAround);
-  
