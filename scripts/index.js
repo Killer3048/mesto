@@ -1,7 +1,9 @@
 const openPopup = item => {
     item.classList.add("popup_is-opened");
-    nameInput.value = profileName.textContent;
+    if(item === popupProfile){
+        nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
+}
 };
 
 const closePopup = item => {
@@ -15,21 +17,20 @@ const editProfile = event => {
     popup.classList.remove("popup_is-opened");
 };
 
-const createCard = item => {
-    const card = cardTemplate.cloneNode(true);
-    const [image, like, trash] = [card.querySelector(".card__image"), card.querySelector(".card__like"), card.querySelector(".card__trash")];
-    [image.src, image.alt] = [item.link, item.name];
-    card.querySelector(".card__title").textContent = item.name;
-    like.addEventListener("click", () => like.classList.toggle("card__like_active"));
-    trash.addEventListener('click', () => card.remove());
-    image.addEventListener("click", () => {
-        const [popupImageImg, popupImageTitle] = [popupImage.querySelector(".popup__image"), popupImage.querySelector(".popup__image-title")];
-        openAndClosePopup(popupImage);
-        [popupImageImg.src, popupImageImg.alt, popupImageTitle.textContent] = [item.link, item.name, item.name];
-    });
-
-    return card;
-};
+const createCard = item => { 
+    const card = cardTemplate.cloneNode(true); 
+    const [image, like, trash] = [card.querySelector(".card__image"), card.querySelector(".card__like"), card.querySelector(".card__trash")]; 
+    [image.src, image.alt] = [item.link, item.name]; 
+    card.querySelector(".card__title").textContent = item.name; 
+    like.addEventListener("click", () => like.classList.toggle("card__like_active")); 
+    trash.addEventListener('click', () => card.remove()); 
+    image.addEventListener("click", () => { 
+        const [popupImageImg, popupImageTitle] = [popupImage.querySelector(".popup__image"), popupImage.querySelector(".popup__image-title")]; 
+        openPopup(popupImage); 
+        [popupImageImg.src, popupImageImg.alt, popupImageTitle.textContent] = [item.link, item.name, item.name]; 
+    }); 
+    return card; 
+}; 
 
 const renderCards = () => cardElements.prepend(...initialCards.map(createCard));
 renderCards();
@@ -44,8 +45,8 @@ formElementMesto.addEventListener('submit', event => {
 });
 
 form.addEventListener("submit", editProfile);
-editButton.addEventListener("click", () => openPopup(popup));
-closeButton.addEventListener("click", () => closePopup(popup));
+editButton.addEventListener("click", () => openPopup(popupProfile));
+closeButton.addEventListener("click", () => closePopup(popupProfile));
 openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
 closeMestoPopup.addEventListener("click", () => closePopup(popupMesto));
 closePopupImage.addEventListener("click", () => closePopup(popupImage));

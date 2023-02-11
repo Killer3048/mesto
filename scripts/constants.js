@@ -23,6 +23,8 @@ const linkImageInput = popupMesto.querySelector('input[name="imageSrc"]')
 const formElementMesto = popupMesto.querySelector('.popup__form')
 
 const popupImage = document.querySelector('.popup_type_image')
+const popupImageImg = popupImage.querySelector('.popup__image')
+const popupImageTitle = popupImage.querySelector('.popup__image-title')
 const closePopupImage = popupImage.querySelector('.popup__btn-close')
 
 const cardTemplate = document.querySelector('.template-card').content.querySelector('.card')
