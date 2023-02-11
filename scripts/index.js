@@ -1,6 +1,7 @@
 const openPopup = (item) => {
     item.classList.add("popup_is-opened");
     if (item === popupProfile) {
+      console.log('Попап профиля открыт')
       nameInput.value = profileName.textContent;
       jobInput.value = profileJob.textContent;
     }
