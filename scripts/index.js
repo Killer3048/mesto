@@ -22,6 +22,7 @@ const createCard = (item) => {
   );
 
   trash.addEventListener("click", () => card.remove());
+
   image.addEventListener("click", () => {
     const popupImageImg = popupImage.querySelector(".popup__image");
     const popupImageTitle = popupImage.querySelector(".popup__image-title");
@@ -30,6 +31,7 @@ const createCard = (item) => {
     popupImageImg.alt = item.name;
     popupImageTitle.textContent = item.name;
   });
+  
   return card;
 };
 
