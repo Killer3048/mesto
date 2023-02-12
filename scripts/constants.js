@@ -1,7 +1,4 @@
-const popup = document.querySelector(".popup"); //не понимаю, чем тебе не нравится эта константа! Остальное исправил
 const popupProfile = document.querySelector('.popup_type_profile')
-
-const form = document.querySelector(".popup__form");
 const formProfile = popupProfile.querySelector(".popup__form");
 
 const closeButton = document.querySelector(".popup__btn-close");

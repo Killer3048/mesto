@@ -53,7 +53,7 @@ formElementMesto.addEventListener("submit", (event) => {
   closePopup(popupMesto);
 });
 
-form.addEventListener("submit", editProfile);
+formProfile.addEventListener("submit", editProfile);
 editButton.addEventListener("click", function () {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
