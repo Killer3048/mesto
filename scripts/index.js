@@ -48,17 +48,21 @@ formElementMesto.addEventListener("submit", (event) => {
 });
 
 formProfile.addEventListener("submit", editProfile);
+
 editButton.addEventListener("click", () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   openPopup(popupProfile);
 });
 
-popups.forEach((popup) => {
-  popup.addEventListener("click", (event) => {
-    if (event.target === popup) closePopup(popup);
+popups.forEach(function(popup) {
+  popup.addEventListener('click', function(event) {
+    if (event.target === popup) {
+      closePopup(popup);
+    }  
   });
 });
+
 
 closeButton.addEventListener("click", () => closePopup(popupProfile));
 openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
