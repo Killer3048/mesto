@@ -63,7 +63,6 @@ popups.forEach(function(popup) {
   });
 });
 
-
 closeButton.addEventListener("click", () => closePopup(popupProfile));
 openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
 closeMestoPopup.addEventListener("click", () => closePopup(popupMesto));
