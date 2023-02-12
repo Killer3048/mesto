@@ -1,3 +1,6 @@
+const popups = document.querySelectorAll('.popup');
+
+
 const popupProfile = document.querySelector('.popup_type_profile')
 const formProfile = popupProfile.querySelector(".popup__form");
 

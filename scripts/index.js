@@ -1,10 +1,5 @@
-const openPopup = (item) => {
-  item.classList.add("popup_is-opened");
-};
-
-const closePopup = (item) => {
-  item.classList.remove("popup_is-opened");
-};
+const openPopup = (item) => item.classList.add("popup_is-opened");
+const closePopup = (item) => item.classList.remove("popup_is-opened");
 
 const editProfile = (event) => {
   event.preventDefault();
@@ -15,13 +10,12 @@ const editProfile = (event) => {
 
 const createCard = (item) => {
   const card = cardTemplate.cloneNode(true);
-  const [image, like, trash] = [
-    card.querySelector(".card__image"),
-    card.querySelector(".card__like"),
-    card.querySelector(".card__trash")
-  ];
+  const image = card.querySelector(".card__image");
+  const like = card.querySelector(".card__like");
+  const trash = card.querySelector(".card__trash");
+  image.src = item.link;
+  image.alt = item.name;
 
-  [image.src, image.alt] = [item.link, item.name];
   card.querySelector(".card__title").textContent = item.name;
   like.addEventListener("click", () =>
     like.classList.toggle("card__like_active")
@@ -29,10 +23,8 @@ const createCard = (item) => {
 
   trash.addEventListener("click", () => card.remove());
   image.addEventListener("click", () => {
-    const [popupImageImg, popupImageTitle] = [
-      popupImage.querySelector(".popup__image"),
-      popupImage.querySelector(".popup__image-title")
-    ];
+    const popupImageImg = popupImage.querySelector(".popup__image");
+    const popupImageTitle = popupImage.querySelector(".popup__image-title");
     openPopup(popupImage);
     popupImageImg.src = item.link;
     popupImageImg.alt = item.name;
@@ -54,11 +46,18 @@ formElementMesto.addEventListener("submit", (event) => {
 });
 
 formProfile.addEventListener("submit", editProfile);
-editButton.addEventListener("click", function () {
+editButton.addEventListener("click", () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   openPopup(popupProfile);
 });
+
+popups.forEach((popup) => {
+  popup.addEventListener("click", (event) => {
+    if (event.target === popup) closePopup(popup);
+  });
+});
+
 closeButton.addEventListener("click", () => closePopup(popupProfile));
 openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
 closeMestoPopup.addEventListener("click", () => closePopup(popupMesto));
