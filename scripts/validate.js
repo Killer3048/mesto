@@ -8,8 +8,14 @@ const validationSettings = {
 };
 
 const checkValidity = (formElem, inputElem, lists) => {
-    if (!inputElem.validity.valid) {
-        showError(formElem, inputElem, inputElem.validationMessage, lists);
+    if (!inputElem.validity.valid || inputElem.value.length < 2) {
+        let errorMsg;
+        if (inputElem.value.length < 2) {
+            errorMsg = 'Введите минимум 2 символа';
+        } else {
+            errorMsg = inputElem.validationMessage;
+        }
+        showError(formElem, inputElem, errorMsg, lists);
     } else {
         hideError(formElem, inputElem, lists);
     }
