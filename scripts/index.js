@@ -1,6 +1,10 @@
-const openPopup = (item) => item.classList.add('popup_is-opened');
+const openPopup = (popup) => {
+    popup.classList.add('popup_is-opened');
+    document.addEventListener('keydown', closeByEscape);
+};
 const closePopup = (popup) => {
-  popup.classList.remove('popup_is-opened');
+    popup.classList.remove('popup_is-opened');
+    document.removeEventListener('keydown', closeByEscape);
 };
 
 const editProfile = (event) => {
@@ -55,22 +59,22 @@ editButton.addEventListener('click', () => {
     openPopup(popupProfile);
 });
 
-const closePopupOnEsc = (event) => {
+const closeByEscape = (event) => {
     if (event.key === 'Escape') {
         const openedPopup = document.querySelector('.popup_is-opened');
         if (openedPopup) {
             closePopup(openedPopup);
         }
     }
-}
+};
 
 popups.forEach(function(popup) {
     popup.addEventListener('click', function(event) {
-      if (event.target === popup) {
-        closePopup(popup);
-      }  
+        if (event.target === popup) {
+            closePopup(popup);
+        }
     });
-  });
+});
 
 
 closeButton.addEventListener("click", () => closePopup(popupProfile));
