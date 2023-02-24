@@ -69,14 +69,6 @@ const resetErrors = (formElem, lists) => {
     });
 };
 
-popups.forEach(function(popup) {
-    popup.addEventListener('click', function(event) {
-        if (event.target === popup) {
-            closePopup(popup);
-        }
-    });
-});
-
 const closePopupOnEsc = (event) => {
     if (event.key === 'Escape') {
         const openedPopup = document.querySelector('.popup_is-opened');
@@ -86,6 +78,14 @@ const closePopupOnEsc = (event) => {
     }
 }
 
+
+popups.forEach(function(popup) {
+    popup.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            closePopup(popup);
+        }
+    });
+});
 
 closeButton.addEventListener("click", () => closePopup(popupProfile));
 openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
