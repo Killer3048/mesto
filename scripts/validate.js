@@ -1,3 +1,5 @@
+let isSubmitButtonDisabled = true;
+
 const validationSettings = {
     formSelector: '.popup__form',
     inputSelector: '.popup__form-input',
@@ -46,7 +48,17 @@ const setListeners = (formElem, lists) => {
     });
     formElem.addEventListener('reset', () => {
         toggleButton(inputList, buttonElem, lists);
+        isSubmitButtonDisabled = true;
+        buttonElem.classList.add(lists.inactiveButtonClass);
+        buttonElem.disabled = true;
     });
+    if (isSubmitButtonDisabled) {
+        buttonElem.classList.add(lists.inactiveButtonClass);
+        buttonElem.disabled = true;
+    } else {
+        buttonElem.classList.remove(lists.inactiveButtonClass);
+        buttonElem.disabled = false;
+    }
 };
 const enableValidation = (lists) => {
     const formList = Array.from(document.querySelectorAll(lists.formSelector));
@@ -67,9 +79,11 @@ const toggleButton = (inputList, buttonElem, lists) => {
     if (isAnyInvalid || !isBothFilled) {
         buttonElem.classList.add(lists.inactiveButtonClass);
         buttonElem.disabled = true;
+        isSubmitButtonDisabled = true;
     } else {
         buttonElem.classList.remove(lists.inactiveButtonClass);
         buttonElem.disabled = false;
+        isSubmitButtonDisabled = false;
     }
 };
 

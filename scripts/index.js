@@ -91,7 +91,7 @@ closeButton.addEventListener("click", () => {
 });
 openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
 closeMestoPopup.addEventListener("click", () => {
-    closePopup(popupProfile);
     clearErrors(inputsAll);
+    closePopup(popupMesto);
 });
 closePopupImage.addEventListener("click", () => closePopup(popupImage));
