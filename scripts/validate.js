@@ -75,8 +75,9 @@ const checkInvalidInput = (inputList) => {
 const toggleButton = (inputList, buttonElem, lists) => {
     const isAnyInvalid = inputList.some((input) => !input.validity.valid);
     const isBothFilled = inputList.every((input) => input.value !== '');
+    const isLengthValid = inputList.every((input) => input.value.length >= 2);
 
-    if (isAnyInvalid || !isBothFilled) {
+    if (isAnyInvalid || !isBothFilled || !isLengthValid) {
         buttonElem.classList.add(lists.inactiveButtonClass);
         buttonElem.disabled = true;
         isSubmitButtonDisabled = true;
