@@ -6,7 +6,6 @@ const closePopup = (popup) => {
     popup.classList.remove('popup_is-opened');
     document.removeEventListener('keydown', closeByEscape);
 };
-
 const editProfile = (event) => {
     event.preventDefault();
     profileName.textContent = nameInput.value;
@@ -76,8 +75,23 @@ popups.forEach(function(popup) {
     });
 });
 
+const clearErrors = (input) => {
+    const errorSpans = document.querySelectorAll('.popup__form-error');
+    errorSpans.forEach((errorSpan) => {
+        errorSpan.textContent = '';
+    });
+    input.forEach((inputElement) => {
+        inputElement.classList.remove('popup__form-input_type_error');
+    });
+};
 
-closeButton.addEventListener("click", () => closePopup(popupProfile));
+closeButton.addEventListener("click", () => {
+    closePopup(popupProfile);
+    clearErrors(inputsAll);
+});
 openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
-closeMestoPopup.addEventListener("click", () => closePopup(popupMesto));
+closeMestoPopup.addEventListener("click", () => {
+    closePopup(popupProfile);
+    clearErrors(inputsAll);
+});
 closePopupImage.addEventListener("click", () => closePopup(popupImage));

@@ -6,6 +6,7 @@ const closeButtonProfile = formProfile.querySelector('.popup__btn-close');
 const editButton = document.querySelector('.profile__info-edit');
 const nameInput = document.querySelector('.popup__form-input_type_name');
 const jobInput = document.querySelector('.popup__form-input_type_job');
+const inputsAll = document.querySelectorAll('.popup__form-input')
 const profileName = document.querySelector('.profile__info-name');
 const profileJob = document.querySelector('.profile__info-job');
 const popupMesto = document.querySelector('.popup_type_mesto');
