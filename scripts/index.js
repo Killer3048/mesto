@@ -81,4 +81,3 @@ closeButton.addEventListener("click", () => closePopup(popupProfile));
 openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
 closeMestoPopup.addEventListener("click", () => closePopup(popupMesto));
 closePopupImage.addEventListener("click", () => closePopup(popupImage));
-document.addEventListener('keydown', closePopupOnEsc);
