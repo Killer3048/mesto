@@ -62,12 +62,15 @@ editButton.addEventListener("click", () => {
     openPopup(popupProfile);
 });
 
-const resetErrors = (formElem, lists) => {
-    const inputList = Array.from(formElem.querySelectorAll(lists.inputSelector));
-    inputList.forEach((inputElem) => {
-        hideError(formElem, inputElem, lists);
-    });
-};
+function resetErrors() {
+    const errors = document.querySelectorAll('.error');
+    if (errors) {
+      errors.forEach(error => {
+        error.classList.remove('error');
+      });
+    }
+  }
+  
 
 const closePopupOnEsc = (event) => {
     if (event.key === 'Escape') {
@@ -78,14 +81,20 @@ const closePopupOnEsc = (event) => {
     }
 }
 
-
 popups.forEach(function(popup) {
     popup.addEventListener('click', function(event) {
-        if (event.target === popup) {
-            closePopup(popup);
-        }
+      if (event.target === popup) {
+        resetErrors(popup.querySelector(validationSettings.formSelector));
+        closePopup(popup);
+      }  
     });
-});
+  });
+
+popupImage.addEventListener('click', (event) => {
+    if (event.target === popupImage) {
+      closePopup(popupImage);
+    }
+  });
 
 closeButton.addEventListener("click", () => closePopup(popupProfile));
 openMestoPopup.addEventListener("click", () => openPopup(popupMesto));
