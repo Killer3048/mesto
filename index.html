@@ -47,21 +47,24 @@
             <h2 class="popup__title">Редактировать профиль</h2>
             <button class="popup__btn-close" aria-label="что-то" type="button"></button>
             <form class="popup__form" name="formProfile">
-                <input class="popup__form-input popup__form-input_type_name" type="text" name="name" value="" placeholder="Имя" required>
-                <input class="popup__form-input popup__form-input_type_job" type="text" name="job" value="" placeholder="Профессия" required>
+                <input id='name-input' class="popup__form-input popup__form-input_type_name" type="text" name="name" value="" placeholder="Имя" required>
+                <span class="popup__form-error name-input-error"></span>
+                <input id='job-input' class="popup__form-input popup__form-input_type_job" type="text" name="job" value="" placeholder="Профессия" required>
+                <span class="popup__form-error job-input-error"></span>
                 <button type="submit" class="popup__form-btn">Сохранить</button>
             </form>
         </div>
     </div>
-
-
+    
     <div class="popup popup_type_mesto">
         <div class="popup__container">
             <h2 class="popup__title">Новое место</h2>
             <button class="popup__btn-close" aria-label="что-то" type="button"></button>
-            <form class="popup__form " name="mestoProfile">
-                <input class="popup__form-input popup__form-input_type_name" type="text" name="imageName" value="" placeholder="Название" required>
-                <input class="popup__form-input popup__form-input_type_job" type="text" name="imageSrc" value="" placeholder="Ссылка на картинку">
+            <form class="popup__form" name="mestoProfile">
+                <input id="image-input" class="popup__form-input popup__form-input_type_name" type="text" name="imageName" value="" placeholder="Название" required>
+                <span class="popup__form-error image-input-error"></span>
+                <input id="url-input" class="popup__form-input popup__form-input_type_job" type="text" name="imageSrc" value="" placeholder="Ссылка на картинку">
+                <span class="popup__form-error url-input-error"></span>
                 <button type="submit" class="popup__form-btn">Сохранить</button>
             </form>
         </div>
@@ -87,6 +90,7 @@
     </template>
     <script src="./scripts/constants.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 
 </html>
