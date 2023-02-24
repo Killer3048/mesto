@@ -38,8 +38,10 @@ const setListeners = (formElem, lists) => {
             toggleButton(inputList, buttonElem, lists);
         });
     });
+    formElem.addEventListener('reset', () => {
+        toggleButton(inputList, buttonElem, lists);
+    });
 };
-
 const enableValidation = (lists) => {
     const formList = Array.from(document.querySelectorAll(lists.formSelector));
     formList.forEach((formElem) => {
@@ -53,12 +55,15 @@ const checkInvalidInput = (inputList) => {
 };
 
 const toggleButton = (inputList, buttonElem, lists) => {
-    if (checkInvalidInput(inputList)) {
-        buttonElem.setAttribute('disabled', true);
+    const isAnyInvalid = inputList.some((input) => !input.validity.valid);
+    const isBothFilled = inputList.every((input) => input.value !== '');
+
+    if (isAnyInvalid || !isBothFilled) {
         buttonElem.classList.add(lists.inactiveButtonClass);
+        buttonElem.disabled = true;
     } else {
-        buttonElem.removeAttribute('disabled');
         buttonElem.classList.remove(lists.inactiveButtonClass);
+        buttonElem.disabled = false;
     }
 };
 
